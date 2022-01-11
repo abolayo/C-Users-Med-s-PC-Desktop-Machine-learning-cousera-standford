@@ -35,13 +35,13 @@ grad = zeros(size(theta));
 %           temp(1) = 0;   % because we don't add anything for j = 0  
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
-
-
-
-
-
-
-
+% calculate cost function
+h = sigmoid(X*theta);
+J = mean((-y).'*log(h)-(1-y).'*log(1-h)) + sum(theta(2:end) .^2) * lambda / (2 * m);
+ % calculate grads
+temp = theta;
+temp(1) = 0;
+grad = (X'*(h - y) ./m) + temp(1) * lambda / m;
 
 
 
